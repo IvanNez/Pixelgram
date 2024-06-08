@@ -10,12 +10,23 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var keychainManager = KeychainManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = Builder.getPasscodeController()
+        window?.rootViewController = Builder.getPasscodeController(passcodeState: checkIssetPasscode())
         window?.makeKeyAndVisible()
+    }
+    
+    private func checkIssetPasscode() -> PasscodeState {
+        let keychainPasscodeResult = keychainManager.load(key: KeychainKeys.passcode.rawValue)
+        switch keychainPasscodeResult {
+        case .success(let code):
+            return code.isEmpty ? .setNewPasscode : .inputPasscode
+        case .failure(let error):
+            return .setNewPasscode
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
