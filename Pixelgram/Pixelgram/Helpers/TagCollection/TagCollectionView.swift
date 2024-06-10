@@ -32,7 +32,7 @@ class TagCollectionView: TagCollectionViewProtocol {
                 layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
                 layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 
-                collection.alwaysBounceHorizontal = false
+                collection.alwaysBounceHorizontal = true
                 collection.showsHorizontalScrollIndicator = false
                 collection.dataSource = self.dataSource
                 collection.backgroundColor = .clear

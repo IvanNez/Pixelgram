@@ -27,8 +27,16 @@ class MainPostCell: UICollectionViewCell {
         $0.spacing = 20
         $0.addArrangedSubview(photoCountLabel)
         $0.addArrangedSubview(commentCountLabel)
+        $0.addArrangedSubview(UIView())
         return $0
     }(UIStackView())
+    
+    lazy var addFavouriteButton: UIButton = {
+        $0.frame = CGRect(x: bounds.width - 40, y: 25, width: 25, height: 25)
+        $0.setBackgroundImage(.heart, for: .normal)
+        $0.tintColor = .black
+        return $0
+    }(UIButton(primaryAction: nil))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,26 +46,51 @@ class MainPostCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        tagCollectionView.removeFromSuperview()
+        postDescriptionLabel.removeFromSuperview()
+    }
 }
 
 // MARK: Setup layer
 extension MainPostCell {
     func configureCell(item: PostItem) {
+        tags = item.tag ?? []
+        let tagCollection: TagCollectionViewProtocol = TagCollectionView(dataSource: self)
+        tagCollectionView = tagCollection.getCollectionView()
+        
         postImage.image = UIImage(named: item.photos.first!)
         photoCountLabel = getCellLabel(text: "\(item.photos.count) фото")
         commentCountLabel = getCellLabel(text: "\(item.comments?.count ?? 0) комментарий" )
         postDescriptionLabel = getCellLabel(text: "\(item.description ?? "")")
         
-        addSubview(countLabelsStack)
-        
+        [countLabelsStack, tagCollectionView, postDescriptionLabel].forEach({addSubview($0)})
+        setConstraints()
+    }
+    
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            countLabelsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            countLabelsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            countLabelsStack.bottomAnchor.constraint(equalTo: tagCollectionView.topAnchor, constant: -8),
+            
+            tagCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tagCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tagCollectionView.heightAnchor.constraint(equalToConstant: 40),
+            tagCollectionView.bottomAnchor.constraint(equalTo: postDescriptionLabel.topAnchor, constant: -10),
+            
+            postDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            postDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            postDescriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
+        ])
     }
     
     private func contentViewConfig() {
-        addSubview(postImage)
+        [postImage, addFavouriteButton].forEach({addSubview($0)})
         layer.cornerRadius = 30
         clipsToBounds = true
         setViewGradient(frame: bounds, startPoint: CGPoint(x: 0.5, y: 1), endPoint: CGPoint(x: 0.5, y: 0.5), colors: [.black, .clear], location: [0, 1])
-        
     }
     
     private func getCellLabel(text: String) -> UILabel {
@@ -72,3 +105,20 @@ extension MainPostCell {
     }
 }
  
+
+// MARK: -- UICollectionViewDataSource
+extension MainPostCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        tags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionCell.reuseId, for: indexPath) as! TagCollectionCell
+        let tag = tags[indexPath.row]
+        cell.cellConfigure(tagText: tag)
+        
+        return cell
+    }
+    
+    
+}
