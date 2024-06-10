@@ -14,6 +14,9 @@
 		541E257F2C14765B00515CFA /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E257E2C14765B00515CFA /* KeychainManager.swift */; };
 		541E25822C1476D200515CFA /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 541E25812C1476D200515CFA /* KeychainAccess */; };
 		541E25842C147B6300515CFA /* StringProtocolExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25832C147B6300515CFA /* StringProtocolExt.swift */; };
+		545302462C16FF86003B3482 /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545302452C16FF86003B3482 /* UIApplicationExt.swift */; };
+		5453024A2C1709F8003B3482 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545302492C1709F8003B3482 /* TagCollectionView.swift */; };
+		5453024C2C170B17003B3482 /* TagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5453024B2C170B17003B3482 /* TagCollectionCell.swift */; };
 		546C02912C15A0BD00C18C6F /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C02902C15A0BD00C18C6F /* MainScreenView.swift */; };
 		546C02952C15A0D600C18C6F /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C02942C15A0D600C18C6F /* FavouriteView.swift */; };
 		546C02972C15A0DF00C18C6F /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C02962C15A0DF00C18C6F /* CameraView.swift */; };
@@ -37,6 +40,9 @@
 		541E257B2C1324D500515CFA /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		541E257E2C14765B00515CFA /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		541E25832C147B6300515CFA /* StringProtocolExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExt.swift; sourceTree = "<group>"; };
+		545302452C16FF86003B3482 /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
+		545302492C1709F8003B3482 /* TagCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		5453024B2C170B17003B3482 /* TagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionCell.swift; sourceTree = "<group>"; };
 		546C02902C15A0BD00C18C6F /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		546C02942C15A0D600C18C6F /* FavouriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
 		546C02962C15A0DF00C18C6F /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 				541E257B2C1324D500515CFA /* UIViewExt.swift */,
 				541E25832C147B6300515CFA /* StringProtocolExt.swift */,
 				546C02A52C15B60A00C18C6F /* DateExt.swift */,
+				545302452C16FF86003B3482 /* UIApplicationExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -145,6 +152,23 @@
 				541E257E2C14765B00515CFA /* KeychainManager.swift */,
 			);
 			path = KeychainManager;
+			sourceTree = "<group>";
+		};
+		545302472C1709E2003B3482 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				545302482C1709E9003B3482 /* TagCollection */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		545302482C1709E9003B3482 /* TagCollection */ = {
+			isa = PBXGroup;
+			children = (
+				545302492C1709F8003B3482 /* TagCollectionView.swift */,
+				5453024B2C170B17003B3482 /* TagCollectionCell.swift */,
+			);
+			path = TagCollection;
 			sourceTree = "<group>";
 		};
 		546C02872C15A02500C18C6F /* TabBarModule */ = {
@@ -259,6 +283,7 @@
 		54C283182C11DDFB00628997 /* Pixelgram */ = {
 			isa = PBXGroup;
 			children = (
+				545302472C1709E2003B3482 /* Helpers */,
 				541E257D2C14764A00515CFA /* KeychainManager */,
 				541E257A2C1324BF00515CFA /* Extension */,
 				541E25742C131C1100515CFA /* Builder */,
@@ -347,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545302462C16FF86003B3482 /* UIApplicationExt.swift in Sources */,
 				541E257C2C1324D500515CFA /* UIViewExt.swift in Sources */,
 				546C029B2C15A11700C18C6F /* TabBarViewPresenter.swift in Sources */,
 				546C02A42C15B05500C18C6F /* PostItem.swift in Sources */,
@@ -357,12 +383,14 @@
 				541E257F2C14765B00515CFA /* KeychainManager.swift in Sources */,
 				546C02912C15A0BD00C18C6F /* MainScreenView.swift in Sources */,
 				54C2831A2C11DDFB00628997 /* AppDelegate.swift in Sources */,
+				5453024C2C170B17003B3482 /* TagCollectionCell.swift in Sources */,
 				546C02972C15A0DF00C18C6F /* CameraView.swift in Sources */,
 				546C029E2C15A3B300C18C6F /* MainScreenPresenter.swift in Sources */,
 				54C2831C2C11DDFB00628997 /* SceneDelegate.swift in Sources */,
 				541E25762C131C1C00515CFA /* Builder.swift in Sources */,
 				546C02992C15A10A00C18C6F /* TabBarView.swift in Sources */,
 				546C02A02C15AF3000C18C6F /* MainPostCell.swift in Sources */,
+				5453024A2C1709F8003B3482 /* TagCollectionView.swift in Sources */,
 				541E25792C131DA200515CFA /* PasscodePresenter.swift in Sources */,
 				546C02A62C15B60A00C18C6F /* DateExt.swift in Sources */,
 			);
