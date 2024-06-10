@@ -14,6 +14,7 @@ struct PostDate: Identifiable{
     
     static func getMockData() -> [PostDate] {
         [ PostDate(items: [
+            PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL"), PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL"),
             PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL")
         ], date: Date().addingTimeInterval(-86400))]
     }
