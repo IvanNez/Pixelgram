@@ -26,8 +26,8 @@ extension TabBarViewPresenter: TabBarViewPresenterProtocol {
 
     func buildTabBar() {
         let mainScreen = Builder.createMainScreenController()
-        let favouriteScreen = Builder.createFavouriteScreenController()
         let cameraScreen = Builder.createCameraScreenController()
-        self.view?.setControllers(controllers: [mainScreen, favouriteScreen, cameraScreen])
+        let favouriteScreen = Builder.createFavouriteScreenController()
+        self.view?.setControllers(controllers: [mainScreen, cameraScreen, favouriteScreen])
     }
 }

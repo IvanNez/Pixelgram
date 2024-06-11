@@ -14,8 +14,8 @@ struct PostDate: Identifiable{
     
     static func getMockData() -> [PostDate] {
         [ PostDate(items: [
-            PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL"), PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL"),
-            PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL")
+            PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL", isFavourite: false, date: Date()), PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL", isFavourite: false, date: Date()),
+            PostItem(photos: ["img1", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "BLALALSDLLSADLADL", isFavourite: false, date: Date())
         ], date: Date().addingTimeInterval(-86400))]
     }
 }
@@ -26,7 +26,12 @@ struct PostItem: Identifiable {
     let comments: [Comment]?
     let tag: [String]?
     let description: String?
-    let isFavourite: Bool = false
+    let isFavourite: Bool
+    let date: Date
+    
+    static func getMockItems() -> [PostItem] {
+        [PostItem(photos: ["img3", "img1"], comments: nil, tag: ["Дом", "NatureЭ"], description: "dsadsadadasdadas", isFavourite: true ,date: Date()), PostItem(photos: ["img2", "img1"], comments: nil, tag: ["Дом", "NatureЭ"], description: "dsadsadadasdadas", isFavourite: true ,date: Date()), PostItem(photos: ["img3", "img2"], comments: nil, tag: ["Дом", "NatureЭ"], description: "dsadsadadasdadas", isFavourite: true ,date: Date())]
+    }
 }
 
 struct Comment: Identifiable {
