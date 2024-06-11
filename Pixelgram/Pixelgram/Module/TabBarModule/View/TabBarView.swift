@@ -33,6 +33,11 @@ class TabBarView: UITabBarController {
         tabBar.isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        selectedIndex = 2
+    }
+    
     private func setup() {
         setUpTabButtons()
     }
@@ -46,6 +51,7 @@ extension TabBarView {
             let offsets: [Double] = [-100, 0, 100]
             let tabButton = createTabBarButton(icon: element.element, tag: element.offset, offseX: offsets[element.offset], isBigButton: element.offset == 1 ? true: false)
             view.addSubview(tabButton)
+            
         })
     }
     
