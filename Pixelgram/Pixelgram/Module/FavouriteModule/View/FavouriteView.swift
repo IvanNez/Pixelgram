@@ -56,6 +56,7 @@ private extension FavouriteView {
         title = "Избранное"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = .appMain
+        navigationController?.navigationBar.isHidden = false
         
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white
@@ -73,7 +74,11 @@ extension FavouriteView: FavouriteViewProtocol {
 }
 
 extension FavouriteView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = presenter.post?[indexPath.item] else { return }
+        let detailsView = Builder.createDetailsController(item: item)
+        navigationController?.pushViewController(detailsView, animated: true)
+    }
 }
 
 extension FavouriteView: UICollectionViewDataSource {
