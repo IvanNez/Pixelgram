@@ -31,7 +31,7 @@ struct PostItem: Identifiable {
     let date: Date
     
     static func getMockItems() -> [PostItem] {
-        [PostItem(photos: ["img3", "img1"], comments: nil, tag: ["Дом", "Nature", "family", "NatureNatureNature", "NatureNature"], description: "dsadsadadasdadas", isFavourite: true ,date: Date()),
+        [PostItem(photos: ["img3", "img1"], comments: nil, tag: ["Дом", "Nature", "family", "NatureNatureNature", "NatureNature"], description: "dsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadasdsadsadadasdadas", isFavourite: true ,date: Date()),
          PostItem(photos: ["img2", "img1"], comments: nil, tag: ["Дом", "Nature"], description: "dsadsadadasdadas", isFavourite: true ,date: Date()),
          PostItem(photos: ["img3", "img2"], comments: nil, tag: ["Дом", "Nature"], description: "dsadsadadasdadas", isFavourite: true ,date: Date())
         ]

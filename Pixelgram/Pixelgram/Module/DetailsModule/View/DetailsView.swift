@@ -75,6 +75,8 @@ private extension DetailsView {
                 return self?.createPhotoSection()
             case 1:
                 return self?.createTagSection()
+            case 2, 3:
+                return self?.createDescriptionSection()
             default:
                 return self?.createPhotoSection()
             }
@@ -106,6 +108,15 @@ private extension DetailsView {
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 20)
         return section
     }
+    private func createDescriptionSection() -> NSCollectionLayoutSection {
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [.init(layoutSize: groupSize)])
+        group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: .fixed(10))
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 30, bottom: 0, trailing: 30)
+        return section
+    }
 }
 
 // MARK: -- DetailsViewProtocol
@@ -115,7 +126,7 @@ extension DetailsView: DetailsViewProtocol {
 // MARK: -- UICollectionViewDataSource
 extension DetailsView: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,10 +135,10 @@ extension DetailsView: UICollectionViewDataSource {
             return presenter.item.photos.count + 5
         case 1:
             return presenter.item.tag?.count ?? 0
-            //        case 2, 4, 5:
-            //            return 1
-            //        case 3:
-            //            return presenter.item.comments?.count ?? 0
+        case 2: //, 4, 5:
+            return 1
+        case 3:
+            return 3 /*presenter.item.comments?.count ?? 0*/
         default:
             return 1
         }
