@@ -15,7 +15,7 @@ class NavigationHeader {
     var date: Date
     
     private lazy var navigationView: UIView = {
-        $0.frame = CGRect(x: 30, y: 0, width: UIScreen.main.bounds.width - 60, height: 44)
+        $0.frame = CGRect(x: 30, y: 0, width: UIScreen.main.bounds.width - 30, height: 44)
         $0.backgroundColor = .appMain
         $0.addSubview(dateStack)
         return $0
@@ -25,7 +25,7 @@ class NavigationHeader {
     private lazy var yearLabel: UILabel = getHeaderLabel(text: date.formattDate(formatType: .onlyYear) + " год", size: 14, weight: .light)
     private lazy var backButton: UIButton = getActionButton(origin: CGPoint(x: 0, y: 9), icon: .backIcon, action: backAction)
     private lazy var closeButton: UIButton = getActionButton(origin: CGPoint(x: navigationView.frame.width - 30, y: 0), icon: .closeIcon, action: closeAction)
-    private lazy var menuButton: UIButton = getActionButton(origin: CGPoint(x: navigationView.frame.width - 30, y: 9), icon: .menuIcon, action: menuAction)
+    private lazy var menuButton: UIButton = getActionButton(origin: CGPoint(x: navigationView.frame.width - 75, y: 9), icon: .menuIcon, action: menuAction)
     
     lazy var dateStack: UIStackView = {
         $0.axis = .vertical
