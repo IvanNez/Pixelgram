@@ -35,6 +35,10 @@ class DetailsView: UIViewController {
         $0.dataSource = self
         $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         $0.register(TagCollectionCell.self, forCellWithReuseIdentifier: TagCollectionCell.reuseId)
+        $0.register(DetailsPhotoCell.self, forCellWithReuseIdentifier: DetailsPhotoCell.reuseId)
+        $0.register(DetailsDecriptionCell.self, forCellWithReuseIdentifier: DetailsDecriptionCell.reuseId)
+        $0.register(DetailsAddCommentCell.self, forCellWithReuseIdentifier: DetailsAddCommentCell.reuseId)
+        $0.register(DetailsMapCell.self, forCellWithReuseIdentifier: DetailsMapCell.reuseId)
         return $0
     }(UICollectionView(frame: view.bounds, collectionViewLayout: getCompositionLayout()))
     
@@ -77,6 +81,10 @@ private extension DetailsView {
                 return self?.createTagSection()
             case 2, 3:
                 return self?.createDescriptionSection()
+            case 4:
+                return self?.createCommentFieldSection()
+            case 5:
+                return self?.createMapSection()
             default:
                 return self?.createPhotoSection()
             }
@@ -117,6 +125,30 @@ private extension DetailsView {
         section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 30, bottom: 0, trailing: 30)
         return section
     }
+    private func createCommentFieldSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 30, bottom: 60, trailing: 30)
+        
+        return section
+    }
+    private func createMapSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(160))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30)
+        
+        return section
+    }
 }
 
 // MARK: -- DetailsViewProtocol
@@ -126,19 +158,17 @@ extension DetailsView: DetailsViewProtocol {
 // MARK: -- UICollectionViewDataSource
 extension DetailsView: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        4
+        6
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return presenter.item.photos.count + 5
+            return presenter.item.photos.count
         case 1:
             return presenter.item.tag?.count ?? 0
-        case 2: //, 4, 5:
-            return 1
         case 3:
-            return 3 /*presenter.item.comments?.count ?? 0*/
+            return presenter.item.comments?.count ?? 0
         default:
             return 1
         }
@@ -148,9 +178,32 @@ extension DetailsView: UICollectionViewDataSource {
         
         let item = presenter.item
         switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsPhotoCell.reuseId, for: indexPath) as! DetailsPhotoCell
+            cell.configureCell(image: item.photos[indexPath.item])
+            return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionCell.reuseId, for: indexPath) as! TagCollectionCell
             cell.cellConfigure(tagText: item.tag?[indexPath.row] ?? "")
+            return cell
+        case 2, 3:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsDecriptionCell.reuseId, for: indexPath) as! DetailsDecriptionCell
+            if indexPath.section == 2 {
+                cell.configureCell(date: nil, text: item.description ?? "")
+            } else{
+                let comment = item.comments?[indexPath.row]
+                cell.configureCell(date: comment?.date, text: comment?.comment ?? "")
+            }
+            return cell
+        case 4:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsAddCommentCell.reuseId, for: indexPath) as! DetailsAddCommentCell
+            cell.completion =  { comment in
+                print(comment)
+            }
+            return cell
+        case 5:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsMapCell.reuseId, for: indexPath) as! DetailsMapCell
+            cell.configureCell(coordinate: item.location)
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
