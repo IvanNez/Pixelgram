@@ -12,8 +12,9 @@
 		541E25792C131DA200515CFA /* PasscodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25782C131DA200515CFA /* PasscodePresenter.swift */; };
 		541E257C2C1324D500515CFA /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E257B2C1324D500515CFA /* UIViewExt.swift */; };
 		541E257F2C14765B00515CFA /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E257E2C14765B00515CFA /* KeychainManager.swift */; };
-		541E25822C1476D200515CFA /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 541E25812C1476D200515CFA /* KeychainAccess */; };
 		541E25842C147B6300515CFA /* StringProtocolExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25832C147B6300515CFA /* StringProtocolExt.swift */; };
+		5439C2552C1DACEC005031E5 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5439C2542C1DACEC005031E5 /* KeychainAccess */; };
+		5450E2B42C1DAD3100C30DD6 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450E2B32C1DAD3100C30DD6 /* PhotoView.swift */; };
 		545302462C16FF86003B3482 /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545302452C16FF86003B3482 /* UIApplicationExt.swift */; };
 		5453024A2C1709F8003B3482 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545302492C1709F8003B3482 /* TagCollectionView.swift */; };
 		5453024C2C170B17003B3482 /* TagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5453024B2C170B17003B3482 /* TagCollectionCell.swift */; };
@@ -50,6 +51,7 @@
 		541E257B2C1324D500515CFA /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		541E257E2C14765B00515CFA /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		541E25832C147B6300515CFA /* StringProtocolExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExt.swift; sourceTree = "<group>"; };
+		5450E2B32C1DAD3100C30DD6 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		545302452C16FF86003B3482 /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
 		545302492C1709F8003B3482 /* TagCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
 		5453024B2C170B17003B3482 /* TagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionCell.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				541E25822C1476D200515CFA /* KeychainAccess in Frameworks */,
+				5439C2552C1DACEC005031E5 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,7 @@
 		541E256D2C131B5000515CFA /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				54974ABD2C1DA40700337CAF /* PhotoViewModule */,
 				546568152C19A5980063E890 /* DetailsModule */,
 				546C028F2C15A0A100C18C6F /* CameraModule */,
 				546C028E2C15A09000C18C6F /* FavouriteModule */,
@@ -342,6 +345,30 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		54974ABD2C1DA40700337CAF /* PhotoViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				54974ABF2C1DA42F00337CAF /* Presenter */,
+				54974ABE2C1DA42A00337CAF /* View */,
+			);
+			path = PhotoViewModule;
+			sourceTree = "<group>";
+		};
+		54974ABE2C1DA42A00337CAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5450E2B32C1DAD3100C30DD6 /* PhotoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54974ABF2C1DA42F00337CAF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		54C2830D2C11DDFB00628997 = {
 			isa = PBXGroup;
 			children = (
@@ -391,7 +418,7 @@
 			);
 			name = Pixelgram;
 			packageProductDependencies = (
-				541E25812C1476D200515CFA /* KeychainAccess */,
+				5439C2542C1DACEC005031E5 /* KeychainAccess */,
 			);
 			productName = Pixelgram;
 			productReference = 54C283162C11DDFB00628997 /* Pixelgram.app */;
@@ -422,7 +449,7 @@
 			);
 			mainGroup = 54C2830D2C11DDFB00628997;
 			packageReferences = (
-				541E25802C1476D200515CFA /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				5439C2532C1DACEC005031E5 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 54C283172C11DDFB00628997 /* Products */;
 			projectDirPath = "";
@@ -465,6 +492,7 @@
 				546C02952C15A0D600C18C6F /* FavouriteView.swift in Sources */,
 				541E25842C147B6300515CFA /* StringProtocolExt.swift in Sources */,
 				541E257F2C14765B00515CFA /* KeychainManager.swift in Sources */,
+				5450E2B42C1DAD3100C30DD6 /* PhotoView.swift in Sources */,
 				546C02912C15A0BD00C18C6F /* MainScreenView.swift in Sources */,
 				54974ABA2C1D96BE00337CAF /* UITextFieldExt.swift in Sources */,
 				54C2831A2C11DDFB00628997 /* AppDelegate.swift in Sources */,
@@ -695,7 +723,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		541E25802C1476D200515CFA /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		5439C2532C1DACEC005031E5 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
 			requirement = {
@@ -706,9 +734,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		541E25812C1476D200515CFA /* KeychainAccess */ = {
+		5439C2542C1DACEC005031E5 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 541E25802C1476D200515CFA /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 5439C2532C1DACEC005031E5 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
