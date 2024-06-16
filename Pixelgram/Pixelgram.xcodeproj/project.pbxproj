@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541186432C1E714400E37FD5 /* NSNotificationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541186422C1E714400E37FD5 /* NSNotificationExt.swift */; };
 		541E25722C131BFC00515CFA /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25712C131BFC00515CFA /* PasscodeView.swift */; };
 		541E25762C131C1C00515CFA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25752C131C1C00515CFA /* Builder.swift */; };
 		541E25792C131DA200515CFA /* PasscodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25782C131DA200515CFA /* PasscodePresenter.swift */; };
@@ -15,6 +16,7 @@
 		541E25842C147B6300515CFA /* StringProtocolExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25832C147B6300515CFA /* StringProtocolExt.swift */; };
 		5439C2552C1DACEC005031E5 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5439C2542C1DACEC005031E5 /* KeychainAccess */; };
 		5450E2B42C1DAD3100C30DD6 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450E2B32C1DAD3100C30DD6 /* PhotoView.swift */; };
+		5450E2B62C1E689400C30DD6 /* PhotoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450E2B52C1E689400C30DD6 /* PhotoViewPresenter.swift */; };
 		545302462C16FF86003B3482 /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545302452C16FF86003B3482 /* UIApplicationExt.swift */; };
 		5453024A2C1709F8003B3482 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545302492C1709F8003B3482 /* TagCollectionView.swift */; };
 		5453024C2C170B17003B3482 /* TagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5453024B2C170B17003B3482 /* TagCollectionCell.swift */; };
@@ -45,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		541186422C1E714400E37FD5 /* NSNotificationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationExt.swift; sourceTree = "<group>"; };
 		541E25712C131BFC00515CFA /* PasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeView.swift; sourceTree = "<group>"; };
 		541E25752C131C1C00515CFA /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		541E25782C131DA200515CFA /* PasscodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodePresenter.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		541E257E2C14765B00515CFA /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		541E25832C147B6300515CFA /* StringProtocolExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExt.swift; sourceTree = "<group>"; };
 		5450E2B32C1DAD3100C30DD6 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		5450E2B52C1E689400C30DD6 /* PhotoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewPresenter.swift; sourceTree = "<group>"; };
 		545302452C16FF86003B3482 /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
 		545302492C1709F8003B3482 /* TagCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
 		5453024B2C170B17003B3482 /* TagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionCell.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				546C02A52C15B60A00C18C6F /* DateExt.swift */,
 				545302452C16FF86003B3482 /* UIApplicationExt.swift */,
 				54974AB92C1D96BE00337CAF /* UITextFieldExt.swift */,
+				541186422C1E714400E37FD5 /* NSNotificationExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -320,8 +325,8 @@
 		546C02922C15A0C700C18C6F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				546C02942C15A0D600C18C6F /* FavouriteView.swift */,
 				546568132C188DBD0063E890 /* FavouriteCell.swift */,
+				546C02942C15A0D600C18C6F /* FavouriteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 		54974ABF2C1DA42F00337CAF /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				5450E2B52C1E689400C30DD6 /* PhotoViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -483,8 +489,10 @@
 				54974AB42C1D900F00337CAF /* DetailsPhotoCell.swift in Sources */,
 				54974AB82C1D963500337CAF /* DetailsAddCommentCell.swift in Sources */,
 				541E257C2C1324D500515CFA /* UIViewExt.swift in Sources */,
+				5450E2B62C1E689400C30DD6 /* PhotoViewPresenter.swift in Sources */,
 				546C029B2C15A11700C18C6F /* TabBarViewPresenter.swift in Sources */,
 				546C02A42C15B05500C18C6F /* PostItem.swift in Sources */,
+				541186432C1E714400E37FD5 /* NSNotificationExt.swift in Sources */,
 				546568192C19A5FB0063E890 /* DetailsView.swift in Sources */,
 				541E25722C131BFC00515CFA /* PasscodeView.swift in Sources */,
 				546C02A22C15AF5200C18C6F /* MainPostHeader.swift in Sources */,
