@@ -61,6 +61,11 @@ class MainScreenView: UIViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide": false])
+    }
+    
     private func setup() {
         view.backgroundColor = .black
         view.addSubview(collectionView)

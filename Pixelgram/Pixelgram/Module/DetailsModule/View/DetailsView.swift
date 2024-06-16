@@ -14,6 +14,7 @@ protocol DetailsViewProtocol: AnyObject {
 class DetailsView: UIViewController {
     
     var presenter: DetailsViewPresenterProtocol!
+    var photoView: PhotoView!
     private var menuViewHeight = UIApplication.topSafeArea + 50
     private lazy var topMenuView: UIView = {
         $0.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: menuViewHeight)
@@ -33,6 +34,7 @@ class DetailsView: UIViewController {
         $0.backgroundColor = .none
         $0.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 100, right: 0)
         $0.dataSource = self
+        $0.delegate = self
         $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         $0.register(TagCollectionCell.self, forCellWithReuseIdentifier: TagCollectionCell.reuseId)
         $0.register(DetailsPhotoCell.self, forCellWithReuseIdentifier: DetailsPhotoCell.reuseId)
@@ -51,6 +53,7 @@ class DetailsView: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.setHidesBackButton(true, animated: true)
         navigationController?.navigationBar.isHidden = true
+        NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide": true])
     }
 }
 
@@ -211,6 +214,27 @@ extension DetailsView: UICollectionViewDataSource {
             return cell
         }
     }
-    
-    
+}
+
+// MARK: -- UICollectionViewDelegate
+extension DetailsView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let itemPhoto = presenter.item.photos[indexPath.item]
+            photoView = Builder.createPhotoViewController(image: UIImage(named: itemPhoto)) as? PhotoView
+            
+            if photoView != nil {
+                addChild(photoView!)
+                photoView!.view.frame = view.bounds
+                
+                view.addSubview(photoView!.view)
+                
+                photoView!.completion = {[ weak self ] in
+                    self?.photoView!.view.removeFromSuperview()
+                    self?.photoView!.removeFromParent()
+                    self?.photoView = nil
+                }
+            }
+        }
+    }
 }
