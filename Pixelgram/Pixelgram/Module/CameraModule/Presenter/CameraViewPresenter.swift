@@ -11,23 +11,28 @@ protocol CameraViewPresenterProtocol: AnyObject {
     var photos: [UIImage] { get set }
     var closeViewAction: UIAction? { get set }
     var switchCamera: UIAction? { get set }
-    init(view: CameraViewProtocol)
+    var cameraService: CameraServiceProtocol { get set }
+    init(view: CameraViewProtocol, cameraService: CameraServiceProtocol)
 }
 
 class CameraViewPresenter: CameraViewPresenterProtocol {
-    
+
+    var cameraService: CameraServiceProtocol
     private weak var view: CameraViewProtocol?
     var photos: [UIImage] = []
-    var closeViewAction: UIAction? = UIAction { _ in
+    
+    lazy var closeViewAction: UIAction? = UIAction { [weak self] _ in
         NotificationCenter.default.post(name: .GoToMain, object: nil)
+        self?.cameraService.stopSession()
     }
-    var switchCamera: UIAction? = UIAction { _ in
-        
+    lazy var switchCamera: UIAction? = UIAction { [weak self] _ in
+        self?.cameraService.switchCamera()
     }
     
     
-    required init(view: any CameraViewProtocol) {
+    required init(view: any CameraViewProtocol, cameraService: CameraServiceProtocol) {
         self.view = view
+        self.cameraService = cameraService
     }
     
     
