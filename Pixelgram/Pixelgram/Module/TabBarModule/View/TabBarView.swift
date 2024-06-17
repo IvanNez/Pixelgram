@@ -53,6 +53,10 @@ class TabBarView: UITabBarController {
             }
         }
     }
+    
+    @objc func goToMainView() {
+        self.selectedIndex = 0
+    }
 }
 
 // MARK: Set layout
@@ -65,6 +69,7 @@ private extension TabBarView {
     
     func createNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(hideTabBar), name: .hideTabBar, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToMainView), name: .GoToMain, object: nil)
     }
     
     func setUpTabButtons() {

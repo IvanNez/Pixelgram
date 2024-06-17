@@ -67,7 +67,7 @@ private extension DetailsView {
     }
     
     func setupPageHeader() {
-        let headerView = navigationHeader.getNavigationHeader(type: .back)
+        let headerView = navigationHeader.getNavigationHeader(type: .detailView)
         headerView.frame.origin.y = UIApplication.topSafeArea + 20
         view.addSubview(headerView)
     }
