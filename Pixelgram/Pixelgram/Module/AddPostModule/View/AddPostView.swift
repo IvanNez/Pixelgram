@@ -8,12 +8,14 @@
 import UIKit
 
 protocol AddPostViewProtocol: AnyObject {
-    
+    var delegate: CameraViewDelegate? { get set }
 }
 
 class AddPostView: UIViewController {
 
     var presenter: AddPostPresenterProtocol!
+    var delegate: CameraViewDelegate?
+    
      
     private lazy var backAction = UIAction { [ weak self ] _ in
         self?.navigationController?.popViewController(animated: true)
@@ -174,6 +176,11 @@ extension AddPostView: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostPhotoCell.reuseId, for: indexPath) as! AddPostPhotoCell
             let image = presenter.photos[indexPath.row]
             cell.setCellImage(image: image)
+            cell.completion = { [weak self] in
+                self?.delegate?.deletePhoto(index: indexPath.row)
+                self?.presenter.photos.remove(at: indexPath.row)
+                self?.collectionView.deleteItems(at: [indexPath])
+            }
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostTagCell.reuseId, for: indexPath) as! AddPostTagCell

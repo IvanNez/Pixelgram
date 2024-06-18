@@ -53,7 +53,7 @@ class Builder: BuilderProtocol {
         let presenter = CameraViewPresenter(view: cameraView, cameraService: cameraService)
        
         cameraView.presenter = presenter
-        return UIImagePickerController(rootViewController: cameraView)
+        return UINavigationController(rootViewController: cameraView)
     }
     
     static func createFavouriteScreenController() -> UIViewController {
