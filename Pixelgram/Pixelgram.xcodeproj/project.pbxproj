@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		540194752C1E75C5000D1DDE /* CameraViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540194742C1E75C5000D1DDE /* CameraViewPresenter.swift */; };
-		540194782C1E7964000D1DDE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 540194772C1E7964000D1DDE /* KeychainAccess */; };
 		5401947B2C1ED88B000D1DDE /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5401947A2C1ED88B000D1DDE /* CameraService.swift */; };
 		541186432C1E714400E37FD5 /* NSNotificationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541186422C1E714400E37FD5 /* NSNotificationExt.swift */; };
 		541E25722C131BFC00515CFA /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25712C131BFC00515CFA /* PasscodeView.swift */; };
@@ -27,6 +26,11 @@
 		545EC50B2C1FC1DE0057D661 /* AddPostPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC50A2C1FC1DE0057D661 /* AddPostPhotoCell.swift */; };
 		545EC50D2C1FCB6B0057D661 /* AddPostTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC50C2C1FCB6B0057D661 /* AddPostTagCell.swift */; };
 		545EC50F2C1FD00E0057D661 /* AddPostFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC50E2C1FD00E0057D661 /* AddPostFieldCell.swift */; };
+		545EC5122C1FD7340057D661 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 545EC5112C1FD7340057D661 /* KeychainAccess */; };
+		545EC5172C2164CB0057D661 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC5162C2164CB0057D661 /* SettingsView.swift */; };
+		545EC5192C2165160057D661 /* SettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC5182C2165160057D661 /* SettingsViewPresenter.swift */; };
+		545EC51C2C21681B0057D661 /* SettingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC51B2C21681B0057D661 /* SettingItems.swift */; };
+		545EC51F2C2169E00057D661 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC51E2C2169E00057D661 /* SettingCell.swift */; };
 		546568122C1886AC0063E890 /* FavouriteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546568112C1886AC0063E890 /* FavouriteViewPresenter.swift */; };
 		546568142C188DBD0063E890 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546568132C188DBD0063E890 /* FavouriteCell.swift */; };
 		546568192C19A5FB0063E890 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546568182C19A5FB0063E890 /* DetailsView.swift */; };
@@ -73,6 +77,10 @@
 		545EC50A2C1FC1DE0057D661 /* AddPostPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostPhotoCell.swift; sourceTree = "<group>"; };
 		545EC50C2C1FCB6B0057D661 /* AddPostTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTagCell.swift; sourceTree = "<group>"; };
 		545EC50E2C1FD00E0057D661 /* AddPostFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostFieldCell.swift; sourceTree = "<group>"; };
+		545EC5162C2164CB0057D661 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		545EC5182C2165160057D661 /* SettingsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewPresenter.swift; sourceTree = "<group>"; };
+		545EC51B2C21681B0057D661 /* SettingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItems.swift; sourceTree = "<group>"; };
+		545EC51E2C2169E00057D661 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		546568112C1886AC0063E890 /* FavouriteViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewPresenter.swift; sourceTree = "<group>"; };
 		546568132C188DBD0063E890 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		546568182C19A5FB0063E890 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
@@ -106,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				540194782C1E7964000D1DDE /* KeychainAccess in Frameworks */,
+				545EC5122C1FD7340057D661 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +140,7 @@
 		541E256D2C131B5000515CFA /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				545EC5132C2164A50057D661 /* SetttingsModule */,
 				545EC5022C1FBAA10057D661 /* AddPostModule */,
 				54974ABD2C1DA40700337CAF /* PhotoViewModule */,
 				546568152C19A5980063E890 /* DetailsModule */,
@@ -265,6 +274,49 @@
 				545EC50A2C1FC1DE0057D661 /* AddPostPhotoCell.swift */,
 				545EC50C2C1FCB6B0057D661 /* AddPostTagCell.swift */,
 				545EC50E2C1FD00E0057D661 /* AddPostFieldCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		545EC5132C2164A50057D661 /* SetttingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				545EC51A2C21680B0057D661 /* Model */,
+				545EC5152C2164B10057D661 /* Presenter */,
+				545EC5142C2164AE0057D661 /* View */,
+			);
+			path = SetttingsModule;
+			sourceTree = "<group>";
+		};
+		545EC5142C2164AE0057D661 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				545EC51D2C2169CC0057D661 /* Cell */,
+				545EC5162C2164CB0057D661 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		545EC5152C2164B10057D661 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				545EC5182C2165160057D661 /* SettingsViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		545EC51A2C21680B0057D661 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				545EC51B2C21681B0057D661 /* SettingItems.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		545EC51D2C2169CC0057D661 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				545EC51E2C2169E00057D661 /* SettingCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -493,7 +545,7 @@
 			);
 			name = Pixelgram;
 			packageProductDependencies = (
-				540194772C1E7964000D1DDE /* KeychainAccess */,
+				545EC5112C1FD7340057D661 /* KeychainAccess */,
 			);
 			productName = Pixelgram;
 			productReference = 54C283162C11DDFB00628997 /* Pixelgram.app */;
@@ -524,7 +576,7 @@
 			);
 			mainGroup = 54C2830D2C11DDFB00628997;
 			packageReferences = (
-				540194762C1E7964000D1DDE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				545EC5102C1FD7340057D661 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 54C283172C11DDFB00628997 /* Products */;
 			projectDirPath = "";
@@ -560,11 +612,13 @@
 				541E257C2C1324D500515CFA /* UIViewExt.swift in Sources */,
 				5450E2B62C1E689400C30DD6 /* PhotoViewPresenter.swift in Sources */,
 				546C029B2C15A11700C18C6F /* TabBarViewPresenter.swift in Sources */,
+				545EC51F2C2169E00057D661 /* SettingCell.swift in Sources */,
 				5401947B2C1ED88B000D1DDE /* CameraService.swift in Sources */,
 				546C02A42C15B05500C18C6F /* PostItem.swift in Sources */,
 				545EC50B2C1FC1DE0057D661 /* AddPostPhotoCell.swift in Sources */,
 				541186432C1E714400E37FD5 /* NSNotificationExt.swift in Sources */,
 				546568192C19A5FB0063E890 /* DetailsView.swift in Sources */,
+				545EC51C2C21681B0057D661 /* SettingItems.swift in Sources */,
 				541E25722C131BFC00515CFA /* PasscodeView.swift in Sources */,
 				546C02A22C15AF5200C18C6F /* MainPostHeader.swift in Sources */,
 				545EC50F2C1FD00E0057D661 /* AddPostFieldCell.swift in Sources */,
@@ -573,12 +627,14 @@
 				541E25842C147B6300515CFA /* StringProtocolExt.swift in Sources */,
 				541E257F2C14765B00515CFA /* KeychainManager.swift in Sources */,
 				545EC5062C1FBACB0057D661 /* AddPostView.swift in Sources */,
+				545EC5172C2164CB0057D661 /* SettingsView.swift in Sources */,
 				5450E2B42C1DAD3100C30DD6 /* PhotoView.swift in Sources */,
 				546C02912C15A0BD00C18C6F /* MainScreenView.swift in Sources */,
 				54974ABA2C1D96BE00337CAF /* UITextFieldExt.swift in Sources */,
 				54C2831A2C11DDFB00628997 /* AppDelegate.swift in Sources */,
 				5453024C2C170B17003B3482 /* TagCollectionCell.swift in Sources */,
 				546C02972C15A0DF00C18C6F /* CameraView.swift in Sources */,
+				545EC5192C2165160057D661 /* SettingsViewPresenter.swift in Sources */,
 				545EC50D2C1FCB6B0057D661 /* AddPostTagCell.swift in Sources */,
 				546C029E2C15A3B300C18C6F /* MainScreenPresenter.swift in Sources */,
 				54C2831C2C11DDFB00628997 /* SceneDelegate.swift in Sources */,
@@ -809,7 +865,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		540194762C1E7964000D1DDE /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		545EC5102C1FD7340057D661 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
 			requirement = {
@@ -820,9 +876,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		540194772C1E7964000D1DDE /* KeychainAccess */ = {
+		545EC5112C1FD7340057D661 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 540194762C1E7964000D1DDE /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 545EC5102C1FD7340057D661 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */

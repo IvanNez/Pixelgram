@@ -36,10 +36,6 @@ class TabBarView: UITabBarController {
         tabBar.isHidden = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        selectedIndex = 2
-    }
     
     @objc func hideTabBar(sender: Notification) {
         let isHide = sender.userInfo?["isHide"] as! Bool
