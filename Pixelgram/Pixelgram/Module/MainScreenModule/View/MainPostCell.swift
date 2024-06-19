@@ -56,14 +56,14 @@ class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
 // MARK: Setup layer
 extension MainPostCell {
     func configureCell(item: PostItem) {
-        tags = item.tag ?? []
+        tags = item.tags ?? []
         let tagCollection: TagCollectionViewProtocol = TagCollectionView(dataSource: self)
         tagCollectionView = tagCollection.getCollectionView()
         
-        postImage.image = UIImage(named: item.photos.first!)
-        photoCountLabel = getCellLabel(text: "\(item.photos.count) фото")
+        postImage.image = UIImage(named: item.photos!.first!)
+        photoCountLabel = getCellLabel(text: "\(item.photos!.count) фото")
         commentCountLabel = getCellLabel(text: "\(item.comments?.count ?? 0) комментарий" )
-        postDescriptionLabel = getCellLabel(text: "\(item.description ?? "")")
+        postDescriptionLabel = getCellLabel(text: "\(item.postDescription ?? "")")
         
         [countLabelsStack, tagCollectionView, postDescriptionLabel].forEach({addSubview($0)})
         setConstraints()

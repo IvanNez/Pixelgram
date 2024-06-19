@@ -48,8 +48,8 @@ class AddPostView: UIViewController {
         $0.layer.cornerRadius = 27.5
         return $0
     }(UIButton(frame: CGRect(x: 30, y: view.bounds.height - 98, width: view.bounds.width - 60, height: 55), primaryAction: saveButtonAction))
-    private lazy var saveButtonAction = UIAction { _ in
-        print("SAVE")
+    private lazy var saveButtonAction = UIAction { [weak self] _ in
+        self?.presenter.savePost()
     }
     
     override func viewDidLoad() {
@@ -179,7 +179,8 @@ extension AddPostView: UICollectionViewDataSource {
             cell.completion = { [weak self] in
                 self?.delegate?.deletePhoto(index: indexPath.row)
                 self?.presenter.photos.remove(at: indexPath.row)
-                self?.collectionView.deleteItems(at: [indexPath])
+             
+                self?.collectionView.reloadData()
             }
             return cell
         case 1:

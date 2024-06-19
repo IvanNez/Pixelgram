@@ -84,13 +84,13 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.presenter.posts?[section].items.count ?? 0
+        self.presenter.posts?[section].items?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPostCell.reuseId, for: indexPath) as? MainPostCell else { return UICollectionViewCell() }
         
-        if let provaider = presenter.posts?[indexPath.section].items[indexPath.row] {        cell.configureCell(item: provaider)
+        if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {        cell.configureCell(item: items[indexPath.item])
         }
         
         cell.backgroundColor = .gray
@@ -100,7 +100,7 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainPostHeader.reuseId, for: indexPath) as! MainPostHeader
     
-        header.setHeaderText(header: presenter.posts?[indexPath.section].date.getDateDiference())
+        header.setHeaderText(header: presenter.posts?[indexPath.section].date?.getDateDiference())
         return header
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
