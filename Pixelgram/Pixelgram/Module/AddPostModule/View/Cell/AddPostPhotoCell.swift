@@ -10,6 +10,8 @@ import UIKit
 class AddPostPhotoCell: UICollectionViewCell, CollectionViewCellProtocol {
     static var reuseId: String = "AddPostPhotoCell"
     
+    var completion: (() -> ())?
+    
     private lazy var cellImage: UIImageView = {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
@@ -20,8 +22,8 @@ class AddPostPhotoCell: UICollectionViewCell, CollectionViewCellProtocol {
         $0.setBackgroundImage(.closeIcon, for: .normal)
         return $0
     }(UIButton(frame: CGRect(x: cellImage.frame.width - 30, y: 30, width: 15, height: 15), primaryAction: photoRemoveButtonAction))
-    private lazy var photoRemoveButtonAction = UIAction { _ in
-        print("remove")
+    private lazy var photoRemoveButtonAction = UIAction { [weak self] _ in
+        self?.completion?()
     }
     
     required override init(frame: CGRect) {

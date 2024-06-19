@@ -12,6 +12,10 @@ protocol CameraViewProtocol: AnyObject {
     
 }
 
+protocol CameraViewDelegate {
+    func deletePhoto(index: Int)
+}
+
 class CameraView: UIViewController {
 
     var presenter: CameraViewPresenterProtocol!
@@ -46,12 +50,22 @@ class CameraView: UIViewController {
         $0.setTitle("Далее", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .black
+        $0.layer.opacity = 0.6
+        $0.isEnabled = false
         $0.layer.cornerRadius = 17.5
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         $0.frame.size = CGSize(width: 100, height: 35)
         $0.frame.origin = CGPoint(x: shotButton.frame.origin.x + 90, y: shotButton.frame.origin.y + 12.5)
         return $0
-    }(UIButton())
+    }(UIButton(primaryAction: nextButtonAction))
+    private lazy var nextButtonAction = UIAction  { [weak self] _ in
+        guard let self else { return }
+        if let addPostVC = Builder.createAddPostViewController(photos: self.presenter.photos) as? AddPostView {
+            addPostVC.delegate = self
+            navigationController?.pushViewController(addPostVC, animated: true)
+        }
+       
+    }
     
     private lazy var shotAction = UIAction { [weak self] _ in
         guard let self else { return }
@@ -143,6 +157,8 @@ extension CameraView: AVCapturePhotoCaptureDelegate {
         guard let imageData = photo.fileDataRepresentation() else { return }
         if let image = UIImage(data: imageData) {
             presenter.photos.append(image)
+            nextButton.layer.opacity = 1
+            nextButton.isEnabled = true
             self.shotsCollectionView.reloadData()
         }
             
@@ -167,4 +183,17 @@ extension CameraView: UICollectionViewDataSource {
     }
     
     
+}
+
+
+// MARK: -- CameraViewDelegate
+extension CameraView: CameraViewDelegate {
+    func deletePhoto(index: Int) {
+        presenter.deletePhoto(index: index)
+        if presenter.photos.count == 0 {
+            nextButton.layer.opacity = 0.6
+            nextButton.isEnabled = false
+        }
+        shotsCollectionView.reloadData()
+    }
 }
