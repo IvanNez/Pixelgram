@@ -55,8 +55,8 @@ class FavouriteCell: UICollectionViewCell, CollectionViewCellProtocol {
     }
     
     func configureCell(item: PostItem) {
-        postImage.image = UIImage(named: item.photos.first!)
-        dateLabel.text = item.date.formattDate()
+        postImage.image = UIImage(named: item.photos!.first!)
+        dateLabel.text = item.date?.formattDate()
     }
     
 }

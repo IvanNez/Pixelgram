@@ -30,7 +30,6 @@
 		545EC5192C2165160057D661 /* SettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC5182C2165160057D661 /* SettingsViewPresenter.swift */; };
 		545EC51C2C21681B0057D661 /* SettingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC51B2C21681B0057D661 /* SettingItems.swift */; };
 		545EC51F2C2169E00057D661 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC51E2C2169E00057D661 /* SettingCell.swift */; };
-		545EC5222C217D7B0057D661 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 545EC5212C217D7B0057D661 /* KeychainAccess */; };
 		546568122C1886AC0063E890 /* FavouriteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546568112C1886AC0063E890 /* FavouriteViewPresenter.swift */; };
 		546568142C188DBD0063E890 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546568132C188DBD0063E890 /* FavouriteCell.swift */; };
 		546568192C19A5FB0063E890 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546568182C19A5FB0063E890 /* DetailsView.swift */; };
@@ -44,13 +43,18 @@
 		546C029E2C15A3B300C18C6F /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C029D2C15A3B300C18C6F /* MainScreenPresenter.swift */; };
 		546C02A02C15AF3000C18C6F /* MainPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C029F2C15AF2F00C18C6F /* MainPostCell.swift */; };
 		546C02A22C15AF5200C18C6F /* MainPostHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C02A12C15AF5200C18C6F /* MainPostHeader.swift */; };
-		546C02A42C15B05500C18C6F /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C02A32C15B05500C18C6F /* PostItem.swift */; };
 		546C02A62C15B60A00C18C6F /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C02A52C15B60A00C18C6F /* DateExt.swift */; };
 		54974AB42C1D900F00337CAF /* DetailsPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54974AB32C1D900F00337CAF /* DetailsPhotoCell.swift */; };
 		54974AB62C1D92A600337CAF /* DetailsDecriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54974AB52C1D92A600337CAF /* DetailsDecriptionCell.swift */; };
 		54974AB82C1D963500337CAF /* DetailsAddCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54974AB72C1D963500337CAF /* DetailsAddCommentCell.swift */; };
 		54974ABA2C1D96BE00337CAF /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54974AB92C1D96BE00337CAF /* UITextFieldExt.swift */; };
 		54974ABC2C1D985300337CAF /* DetailsMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54974ABB2C1D985300337CAF /* DetailsMapCell.swift */; };
+		54A3EBF72C22C5B700276168 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 54A3EBF62C22C5B700276168 /* KeychainAccess */; };
+		54A3EBFC2C22C78E00276168 /* Pixelgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54A3EBFA2C22C78E00276168 /* Pixelgram.xcdatamodeld */; };
+		54A3EC042C22CABF00276168 /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A3EBFE2C22CABF00276168 /* PostItem.swift */; };
+		54A3EC062C22CABF00276168 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A3EC002C22CABF00276168 /* PostData.swift */; };
+		54A3EC082C22CABF00276168 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A3EC022C22CABF00276168 /* Comment.swift */; };
+		54A3EC0B2C22CC0600276168 /* CoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A3EC0A2C22CC0600276168 /* CoreManager.swift */; };
 		54C2831A2C11DDFB00628997 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C283192C11DDFB00628997 /* AppDelegate.swift */; };
 		54C2831C2C11DDFB00628997 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C2831B2C11DDFB00628997 /* SceneDelegate.swift */; };
 		54C283232C11DDFD00628997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C283222C11DDFD00628997 /* Assets.xcassets */; };
@@ -94,13 +98,17 @@
 		546C029D2C15A3B300C18C6F /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		546C029F2C15AF2F00C18C6F /* MainPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostCell.swift; sourceTree = "<group>"; };
 		546C02A12C15AF5200C18C6F /* MainPostHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostHeader.swift; sourceTree = "<group>"; };
-		546C02A32C15B05500C18C6F /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		546C02A52C15B60A00C18C6F /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		54974AB32C1D900F00337CAF /* DetailsPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPhotoCell.swift; sourceTree = "<group>"; };
 		54974AB52C1D92A600337CAF /* DetailsDecriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDecriptionCell.swift; sourceTree = "<group>"; };
 		54974AB72C1D963500337CAF /* DetailsAddCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAddCommentCell.swift; sourceTree = "<group>"; };
 		54974AB92C1D96BE00337CAF /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
 		54974ABB2C1D985300337CAF /* DetailsMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMapCell.swift; sourceTree = "<group>"; };
+		54A3EBFB2C22C78E00276168 /* Pixelgram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pixelgram.xcdatamodel; sourceTree = "<group>"; };
+		54A3EBFE2C22CABF00276168 /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		54A3EC002C22CABF00276168 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		54A3EC022C22CABF00276168 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		54A3EC0A2C22CC0600276168 /* CoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreManager.swift; sourceTree = "<group>"; };
 		54C283162C11DDFB00628997 /* Pixelgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixelgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C283192C11DDFB00628997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54C2831B2C11DDFB00628997 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				545EC5222C217D7B0057D661 /* KeychainAccess in Frameworks */,
+				54A3EBF72C22C5B700276168 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +427,6 @@
 		546C028D2C15A06000C18C6F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				546C02A32C15B05500C18C6F /* PostItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -496,6 +503,34 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		54A3EBF82C22C76B00276168 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				54A3EBF92C22C77700276168 /* CoreManager */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
+		54A3EBF92C22C77700276168 /* CoreManager */ = {
+			isa = PBXGroup;
+			children = (
+				54A3EBFD2C22CA9700276168 /* Model */,
+				54A3EBFA2C22C78E00276168 /* Pixelgram.xcdatamodeld */,
+				54A3EC0A2C22CC0600276168 /* CoreManager.swift */,
+			);
+			path = CoreManager;
+			sourceTree = "<group>";
+		};
+		54A3EBFD2C22CA9700276168 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54A3EBFE2C22CABF00276168 /* PostItem.swift */,
+				54A3EC002C22CABF00276168 /* PostData.swift */,
+				54A3EC022C22CABF00276168 /* Comment.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		54C2830D2C11DDFB00628997 = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +550,7 @@
 		54C283182C11DDFB00628997 /* Pixelgram */ = {
 			isa = PBXGroup;
 			children = (
+				54A3EBF82C22C76B00276168 /* StorageManager */,
 				545302472C1709E2003B3482 /* Helpers */,
 				541E257D2C14764A00515CFA /* KeychainManager */,
 				541E257A2C1324BF00515CFA /* Extension */,
@@ -545,7 +581,7 @@
 			);
 			name = Pixelgram;
 			packageProductDependencies = (
-				545EC5212C217D7B0057D661 /* KeychainAccess */,
+				54A3EBF62C22C5B700276168 /* KeychainAccess */,
 			);
 			productName = Pixelgram;
 			productReference = 54C283162C11DDFB00628997 /* Pixelgram.app */;
@@ -576,7 +612,7 @@
 			);
 			mainGroup = 54C2830D2C11DDFB00628997;
 			packageReferences = (
-				545EC5202C217D7B0057D661 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				54A3EBF52C22C5B700276168 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 54C283172C11DDFB00628997 /* Products */;
 			projectDirPath = "";
@@ -608,13 +644,13 @@
 				54974ABC2C1D985300337CAF /* DetailsMapCell.swift in Sources */,
 				546568122C1886AC0063E890 /* FavouriteViewPresenter.swift in Sources */,
 				54974AB42C1D900F00337CAF /* DetailsPhotoCell.swift in Sources */,
+				54A3EC0B2C22CC0600276168 /* CoreManager.swift in Sources */,
 				54974AB82C1D963500337CAF /* DetailsAddCommentCell.swift in Sources */,
 				541E257C2C1324D500515CFA /* UIViewExt.swift in Sources */,
 				5450E2B62C1E689400C30DD6 /* PhotoViewPresenter.swift in Sources */,
 				546C029B2C15A11700C18C6F /* TabBarViewPresenter.swift in Sources */,
 				545EC51F2C2169E00057D661 /* SettingCell.swift in Sources */,
 				5401947B2C1ED88B000D1DDE /* CameraService.swift in Sources */,
-				546C02A42C15B05500C18C6F /* PostItem.swift in Sources */,
 				545EC50B2C1FC1DE0057D661 /* AddPostPhotoCell.swift in Sources */,
 				541186432C1E714400E37FD5 /* NSNotificationExt.swift in Sources */,
 				546568192C19A5FB0063E890 /* DetailsView.swift in Sources */,
@@ -633,6 +669,10 @@
 				54974ABA2C1D96BE00337CAF /* UITextFieldExt.swift in Sources */,
 				54C2831A2C11DDFB00628997 /* AppDelegate.swift in Sources */,
 				5453024C2C170B17003B3482 /* TagCollectionCell.swift in Sources */,
+				54A3EC042C22CABF00276168 /* PostItem.swift in Sources */,
+				54A3EC062C22CABF00276168 /* PostData.swift in Sources */,
+				54A3EC082C22CABF00276168 /* Comment.swift in Sources */,
+				54A3EBFC2C22C78E00276168 /* Pixelgram.xcdatamodeld in Sources */,
 				546C02972C15A0DF00C18C6F /* CameraView.swift in Sources */,
 				545EC5192C2165160057D661 /* SettingsViewPresenter.swift in Sources */,
 				545EC50D2C1FCB6B0057D661 /* AddPostTagCell.swift in Sources */,
@@ -865,7 +905,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		545EC5202C217D7B0057D661 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		54A3EBF52C22C5B700276168 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
 			requirement = {
@@ -876,12 +916,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		545EC5212C217D7B0057D661 /* KeychainAccess */ = {
+		54A3EBF62C22C5B700276168 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 545EC5202C217D7B0057D661 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 54A3EBF52C22C5B700276168 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		54A3EBFA2C22C78E00276168 /* Pixelgram.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				54A3EBFB2C22C78E00276168 /* Pixelgram.xcdatamodel */,
+			);
+			currentVersion = 54A3EBFB2C22C78E00276168 /* Pixelgram.xcdatamodel */;
+			name = Pixelgram.xcdatamodeld;
+			path = "/Users/ivannezgovorov/Desktop/Projects[2]/Pixelgram/Pixelgram/Pixelgram/Pixelgram/StorageManager/CoreManager/Pixelgram.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 54C2830E2C11DDFB00628997 /* Project object */;
 }
