@@ -35,7 +35,7 @@ class AddPostPresenter: AddPostPresenterProtocol {
         
         let post: PostItem = {
             $0.id = id
-            $0.photos = ["img1", "img2"]
+            $0.photos = ["img 1", "img2"]
             $0.comments = []
             $0.tags = self.tags
             $0.date = Date()
