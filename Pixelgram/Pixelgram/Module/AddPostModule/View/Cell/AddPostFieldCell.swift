@@ -11,6 +11,8 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     static var reuseId: String = "AddPostFieldCell"
     
+    var tagCompletion: ((String?) -> ())?
+    
     private lazy var tagField: UITextField = {
         $0.backgroundColor = .appBlack
         $0.attributedPlaceholder = NSAttributedString(string: "Добавить тег", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
@@ -23,8 +25,10 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
     }(UITextField(frame: CGRect(x: 0, y: 0, width: bounds.width, height: 48), primaryAction: tagFieldAction))
 
     
-    private lazy var tagFieldAction = UIAction { _ in
-        self.endEditing(true)
+    private lazy var tagFieldAction = UIAction { [weak self] _ in
+        guard let self = self else { return }
+        tagCompletion?(tagField.text)
+        tagField.text = ""
     }
 
     private lazy var placeholder: UILabel = {
