@@ -175,6 +175,7 @@ extension AddPostView: UICollectionViewDataSource {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostPhotoCell.reuseId, for: indexPath) as! AddPostPhotoCell
             let image = presenter.photos[indexPath.row]
+            
             cell.setCellImage(image: image)
             cell.completion = { [weak self] in
                 self?.delegate?.deletePhoto(index: indexPath.row)
@@ -182,18 +183,30 @@ extension AddPostView: UICollectionViewDataSource {
              
                 self?.collectionView.reloadData()
             }
+            
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostTagCell.reuseId, for: indexPath) as! AddPostTagCell
             let tag = presenter.tags[indexPath.row]
-            cell.setTagText(tagText: tag)
+            
+            cell.setTagText(tagText: tag, tagIndex: indexPath.row)
+            cell.deleteCompletion = { [weak self] in
+                guard let self = self else { return }
+                presenter.tags.remove(at: $0)
+                collectionView.reloadSections(.init(integer: 1))
+            }
+            
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostFieldCell.reuseId, for: indexPath) as! AddPostFieldCell
+            cell.tagCompletion = { [weak self] in
+                guard let self = self else { return }
+                guard let tag = $0 else { return }
             
+                presenter.tags.append(tag)
+                collectionView.reloadSections(.init(integer: 1))
+            }
             return cell
         }
     }
-    
-    
 }
