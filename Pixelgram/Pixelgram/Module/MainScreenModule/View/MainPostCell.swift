@@ -56,11 +56,13 @@ class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
 // MARK: Setup layer
 extension MainPostCell {
     func configureCell(item: PostItem) {
+        
         tags = item.tags ?? []
         let tagCollection: TagCollectionViewProtocol = TagCollectionView(dataSource: self)
         tagCollectionView = tagCollection.getCollectionView()
         
-        postImage.image = UIImage(named: item.photos!.first!)
+        postImage.image = .getCoverPhoto(folderID: item.id, photosName: item.photos)
+        
         photoCountLabel = getCellLabel(text: "\(item.photos!.count) фото")
         commentCountLabel = getCellLabel(text: "\(item.comments?.count ?? 0) комментарий" )
         postDescriptionLabel = getCellLabel(text: "\(item.postDescription ?? "")")

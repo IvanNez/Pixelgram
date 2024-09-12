@@ -90,7 +90,8 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPostCell.reuseId, for: indexPath) as? MainPostCell else { return UICollectionViewCell() }
         
-        if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {        cell.configureCell(item: items[indexPath.item])
+        if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {   let posts = Array(items.reversed())
+            cell.configureCell(item: posts[indexPath.item])
         }
         
         cell.backgroundColor = .gray

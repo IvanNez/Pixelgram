@@ -16,6 +16,8 @@
 		541E257C2C1324D500515CFA /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E257B2C1324D500515CFA /* UIViewExt.swift */; };
 		541E257F2C14765B00515CFA /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E257E2C14765B00515CFA /* KeychainManager.swift */; };
 		541E25842C147B6300515CFA /* StringProtocolExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E25832C147B6300515CFA /* StringProtocolExt.swift */; };
+		541F6E1A2C9305310083BB4B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541F6E192C9305310083BB4B /* StorageManager.swift */; };
+		541F6E1E2C9327BA0083BB4B /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541F6E1D2C9327BA0083BB4B /* UIImageExt.swift */; };
 		5450E2B42C1DAD3100C30DD6 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450E2B32C1DAD3100C30DD6 /* PhotoView.swift */; };
 		5450E2B62C1E689400C30DD6 /* PhotoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450E2B52C1E689400C30DD6 /* PhotoViewPresenter.swift */; };
 		545302462C16FF86003B3482 /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545302452C16FF86003B3482 /* UIApplicationExt.swift */; };
@@ -71,6 +73,8 @@
 		541E257B2C1324D500515CFA /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		541E257E2C14765B00515CFA /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		541E25832C147B6300515CFA /* StringProtocolExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExt.swift; sourceTree = "<group>"; };
+		541F6E192C9305310083BB4B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		541F6E1D2C9327BA0083BB4B /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		5450E2B32C1DAD3100C30DD6 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		5450E2B52C1E689400C30DD6 /* PhotoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewPresenter.swift; sourceTree = "<group>"; };
 		545302452C16FF86003B3482 /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				545302452C16FF86003B3482 /* UIApplicationExt.swift */,
 				54974AB92C1D96BE00337CAF /* UITextFieldExt.swift */,
 				541186422C1E714400E37FD5 /* NSNotificationExt.swift */,
+				541F6E1D2C9327BA0083BB4B /* UIImageExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -230,6 +235,14 @@
 				541E257E2C14765B00515CFA /* KeychainManager.swift */,
 			);
 			path = KeychainManager;
+			sourceTree = "<group>";
+		};
+		541F6E182C9304F00083BB4B /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				541F6E192C9305310083BB4B /* StorageManager.swift */,
+			);
+			path = StorageManager;
 			sourceTree = "<group>";
 		};
 		545302472C1709E2003B3482 /* Helpers */ = {
@@ -506,6 +519,7 @@
 		54A3EBF82C22C76B00276168 /* StorageManager */ = {
 			isa = PBXGroup;
 			children = (
+				541F6E182C9304F00083BB4B /* StorageManager */,
 				54A3EBF92C22C77700276168 /* CoreManager */,
 			);
 			path = StorageManager;
@@ -667,6 +681,7 @@
 				5450E2B42C1DAD3100C30DD6 /* PhotoView.swift in Sources */,
 				546C02912C15A0BD00C18C6F /* MainScreenView.swift in Sources */,
 				54974ABA2C1D96BE00337CAF /* UITextFieldExt.swift in Sources */,
+				541F6E1A2C9305310083BB4B /* StorageManager.swift in Sources */,
 				54C2831A2C11DDFB00628997 /* AppDelegate.swift in Sources */,
 				5453024C2C170B17003B3482 /* TagCollectionCell.swift in Sources */,
 				54A3EC042C22CABF00276168 /* PostItem.swift in Sources */,
@@ -686,6 +701,7 @@
 				5465681E2C19AA150063E890 /* NavigationHeader.swift in Sources */,
 				5453024A2C1709F8003B3482 /* TagCollectionView.swift in Sources */,
 				54974AB62C1D92A600337CAF /* DetailsDecriptionCell.swift in Sources */,
+				541F6E1E2C9327BA0083BB4B /* UIImageExt.swift in Sources */,
 				541E25792C131DA200515CFA /* PasscodePresenter.swift in Sources */,
 				546C02A62C15B60A00C18C6F /* DateExt.swift in Sources */,
 				540194752C1E75C5000D1DDE /* CameraViewPresenter.swift in Sources */,
