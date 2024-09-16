@@ -28,6 +28,7 @@ class TabBarView: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buildTabBar()
         setup()
     }
     
@@ -94,6 +95,14 @@ private extension TabBarView {
 }
 
 extension TabBarView: TabBarViewProtocol {
+    
+    private func buildTabBar() {
+        let mainScreen = Builder.createMainScreenController()
+        let cameraScreen = Builder.createCameraScreenController()
+        let favouriteScreen = Builder.createFavouriteScreenController()
+        self.setControllers(controllers: [mainScreen, cameraScreen, favouriteScreen])
+    }
+    
     func setControllers(controllers: [UIViewController]) {
         setViewControllers(controllers, animated: true)
     }

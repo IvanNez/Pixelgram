@@ -68,7 +68,7 @@ class MainScreenView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide": false])
+        setupAppear()
     }
     
     private func setup() {
@@ -76,6 +76,13 @@ class MainScreenView: UIViewController {
         view.addSubview(collectionView)
         view.addSubview(topMenuView)
         topInsets = collectionView.adjustedContentInset.top + 40
+    }
+    
+    private func setupAppear() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.setHidesBackButton(true, animated: true)
+        navigationController?.navigationBar.isHidden = true
+        NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide": false])
     }
 }
 extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
@@ -90,7 +97,8 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPostCell.reuseId, for: indexPath) as? MainPostCell else { return UICollectionViewCell() }
         
-        if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {        cell.configureCell(item: items[indexPath.item])
+        if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {   let posts = Array(items.reversed())
+            cell.configureCell(item: posts[indexPath.item])
         }
         
         cell.backgroundColor = .gray
@@ -112,6 +120,14 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
         if menuTopPosition < 30, menuTopPosition > 0 {
             topMenuView.frame.origin.y = -menuTopPosition
             self.menuAppName.font = UIFont.systemFont(ofSize: 30 - menuTopPosition * 0.2, weight: .bold)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {   let item = items[indexPath.row]
+            
+            let detailsVC = Builder.createDetailsController(item: item)
+            navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
 }

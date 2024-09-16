@@ -40,7 +40,7 @@ class CoreManager {
     
     func fetchPosts() {
         let request = PostData.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
         do {
             let posts = try persistentContainer.viewContext.fetch(request)

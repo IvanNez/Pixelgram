@@ -36,7 +36,7 @@ class DetailsPhotoCell: UICollectionViewCell, CollectionViewCellProtocol {
         cellImage.addSubview(imageMenuButton)
     }
     
-    func configureCell(image: String) {
-        self.cellImage.image = UIImage(named: image)
+    func configureCell(postID: String, image: String) {
+        self.cellImage.image = .getOneImage(folderID: postID, photo: image)
     }
 }

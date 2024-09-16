@@ -11,7 +11,7 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     static var reuseId: String = "AddPostFieldCell"
     
-    var tagCompletion: ((String?) -> ())?
+    var delegate: AddPostViewDelegate?
     
     private lazy var tagField: UITextField = {
         $0.backgroundColor = .appBlack
@@ -27,7 +27,7 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     private lazy var tagFieldAction = UIAction { [weak self] _ in
         guard let self = self else { return }
-        tagCompletion?(tagField.text)
+        delegate?.addTag(tag: tagField.text)
         tagField.text = ""
     }
 
@@ -38,6 +38,7 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
         $0.layer.opacity = 0.4
         return $0
     }(UILabel(frame: CGRect(x: 24, y: 19, width: 100, height: 20)))
+    
     private lazy var textView: UITextView = {
         $0.backgroundColor = .appBlack
         $0.delegate = self
@@ -74,4 +75,10 @@ extension AddPostFieldCell: UITextViewDelegate {
             placeholder.isHidden = true
         }
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let text = textView.text else { return }
+        delegate?.addDescription(text: text)
+    }
 }
+
