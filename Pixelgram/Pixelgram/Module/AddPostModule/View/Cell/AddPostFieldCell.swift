@@ -11,7 +11,7 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     static var reuseId: String = "AddPostFieldCell"
     
-    var delegate: AddPostViewDelegate?
+    weak var delegate: AddPostViewDelegate?
     
     private lazy var tagField: UITextField = {
         $0.backgroundColor = .appBlack

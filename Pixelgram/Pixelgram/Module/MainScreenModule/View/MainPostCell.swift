@@ -8,6 +8,8 @@
 import UIKit
 
 class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
+    
+    var completion: (() -> ())?
     static let reuseId = "MainPostCell"
     private var tags: [String] = []
     private var tagCollectionView: UICollectionView!
@@ -36,7 +38,9 @@ class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
         $0.setBackgroundImage(.heart, for: .normal)
         $0.tintColor = .black
         return $0
-    }(UIButton(primaryAction: nil))
+    }(UIButton(primaryAction: UIAction(handler: { [weak self] _ in
+        self?.completion?()
+    })))
     
     required override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,6 +61,7 @@ class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
 extension MainPostCell {
     func configureCell(item: PostItem) {
         
+        addFavouriteButton.setBackgroundImage(item.isFavourite ? .heartBlack:.heart, for: .normal)
         tags = item.tags ?? []
         let tagCollection: TagCollectionViewProtocol = TagCollectionView(dataSource: self)
         tagCollectionView = tagCollection.getCollectionView()

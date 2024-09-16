@@ -12,6 +12,7 @@ class CoreManager {
     
     static let shared = CoreManager()
     var allPost: [PostData] = []
+    var favouritePost: [PostItem] = []
     private init() {
         fetchPosts()
     }
@@ -37,6 +38,7 @@ class CoreManager {
             }
         }
     }
+    
     
     func fetchPosts() {
         let request = PostData.fetchRequest()
@@ -80,5 +82,18 @@ class CoreManager {
         }
     }
     
+    func getFavoritePosts() {
+        let bool = NSNumber(booleanLiteral: true)
+        let req = PostItem.fetchRequest()
+        
+        req.predicate = NSPredicate(format: "isFavourite == %@", bool as CVarArg)
+        
+        do {
+            let favouritePosts = try persistentContainer.viewContext.fetch(req)
+            self.favouritePost = favouritePosts
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 

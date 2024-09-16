@@ -53,9 +53,11 @@ class AddPostView: UIViewController {
         $0.layer.cornerRadius = 27.5
         return $0
     }(UIButton(frame: CGRect(x: 30, y: view.bounds.height - 98, width: view.bounds.width - 60, height: 55), primaryAction: saveButtonAction))
+    
     private lazy var saveButtonAction = UIAction { [weak self] _ in
         self?.presenter.savePost()
         NotificationCenter.default.post(name: .dissmisCameraView, object: nil)
+        self?.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {

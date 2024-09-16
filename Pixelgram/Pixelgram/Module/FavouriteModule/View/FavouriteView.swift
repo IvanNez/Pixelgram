@@ -91,7 +91,13 @@ extension FavouriteView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteCell.reuseId, for: indexPath) as! FavouriteCell
         if let item = presenter.post?[indexPath.item] {
             cell.configureCell(item: item)
+            
+            cell.completion = {
+                item.toggleFavorite(isFavourite: item.isFavourite)
+            }
         }
+        
+        
         return cell
     }
 }

@@ -77,6 +77,8 @@ class CameraView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteAllPhoto), name: .dissmisCameraView, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -188,6 +190,15 @@ extension CameraView: UICollectionViewDataSource {
 
 // MARK: -- CameraViewDelegate
 extension CameraView: CameraViewDelegate {
+    
+    @objc
+    func deleteAllPhoto() {
+        presenter.photos.removeAll()
+        nextButton.layer.opacity = 0.6
+        nextButton.isEnabled = false
+        shotsCollectionView.reloadData()
+    }
+    
     func deletePhoto(index: Int) {
         presenter.deletePhoto(index: index)
         if presenter.photos.count == 0 {

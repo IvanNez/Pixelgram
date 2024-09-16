@@ -55,6 +55,7 @@ class MainScreenView: UIViewController {
         $0.backgroundColor = .appMain
         $0.dataSource = self
         $0.delegate = self
+        $0.contentInsetAdjustmentBehavior = .never
         $0.alwaysBounceVertical = true
         $0.register(MainPostCell.self, forCellWithReuseIdentifier: MainPostCell.reuseId)
         $0.register(MainPostHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainPostHeader.reuseId)
@@ -80,7 +81,6 @@ class MainScreenView: UIViewController {
     
     private func setupAppear() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.setHidesBackButton(true, animated: true)
         navigationController?.navigationBar.isHidden = true
         NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide": false])
     }
@@ -98,9 +98,16 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPostCell.reuseId, for: indexPath) as? MainPostCell else { return UICollectionViewCell() }
         
         if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {   let posts = Array(items.reversed())
+            
+            let item = posts[indexPath.item]
+            
             cell.configureCell(item: posts[indexPath.item])
+          
+            cell.completion = {
+                item.toggleFavorite(isFavourite: item.isFavourite)
+            }
         }
-        
+      
         cell.backgroundColor = .gray
         return cell
     }

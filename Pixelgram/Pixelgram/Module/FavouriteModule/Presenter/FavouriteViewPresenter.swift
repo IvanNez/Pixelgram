@@ -17,6 +17,7 @@ class FavouriteViewPresenter: FavouriteViewPresenterProtocol {
     
     var post: [PostItem]?
     private weak var view: FavouriteViewProtocol?
+    private let coreManager = CoreManager.shared
     
     required init(view: any FavouriteViewProtocol) {
         self.view = view
@@ -25,8 +26,11 @@ class FavouriteViewPresenter: FavouriteViewPresenterProtocol {
     
     func getPosts() {
         //self.post = PostItem.getMockItems()
+        self.coreManager.getFavoritePosts()
+        self.post = coreManager.favouritePost
         self.view?.showPost()
     }
+    
 }
 
 
