@@ -44,7 +44,7 @@ class Builder: BuilderProtocol {
         let mainView = MainScreenView()
         let presenter = MainScreenPresenter(view: mainView)
         mainView.presenter = presenter
-        return mainView
+        return UINavigationController(rootViewController: mainView)
     }
     
     static func createCameraScreenController() -> UIViewController {

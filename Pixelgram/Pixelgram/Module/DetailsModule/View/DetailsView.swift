@@ -73,7 +73,7 @@ private extension DetailsView {
     }
 }
 
-// MARK: -- Setup compositionla layout
+// MARK: -- Setup compositional layout
 private extension DetailsView {
     func getCompositionLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] section, _ in
@@ -183,7 +183,8 @@ extension DetailsView: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsPhotoCell.reuseId, for: indexPath) as! DetailsPhotoCell
-            cell.configureCell(image: item.photos![indexPath.item])
+            let provaider = item.photos![indexPath.item]
+            cell.configureCell(postID: item.id ?? "", image: provaider)
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionCell.reuseId, for: indexPath) as! TagCollectionCell
@@ -223,7 +224,8 @@ extension DetailsView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let itemPhoto = presenter.item.photos![indexPath.item]
-            photoView = Builder.createPhotoViewController(image: UIImage(named: itemPhoto)) as? PhotoView
+            let photo: UIImage? = .getOneImage(folderID: presenter.item.id ?? "", photo: itemPhoto)
+            photoView = Builder.createPhotoViewController(image: photo) as? PhotoView
             
             if photoView != nil {
                 addChild(photoView!)

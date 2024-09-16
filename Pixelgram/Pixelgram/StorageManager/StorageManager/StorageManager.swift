@@ -45,6 +45,14 @@ class StorageManager: StorageManagerProtocol{
         return photosData
     }
     
+    func getPhoto(postID: String, imageName: String) -> Data? {
+        var path = getPath().appending(path: postID).appending(path: imageName)
+        if let photoData = try? Data(contentsOf: path) {
+            return photoData
+        }
+        return nil
+    }
+    
     private func savePhoto(postID: String, photo: Data) -> String {
         let name = UUID().uuidString + ".jpeg"
         var path = getPath().appending(path: postID)
